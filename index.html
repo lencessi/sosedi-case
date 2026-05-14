@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кейс: Соседи — новая стратегия устойчивого развития 2026–2030</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .nav-pills {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 20px 0;
+            z-index: 100;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .nav-pill {
+            padding: 10px 20px;
+            background: #e9ecef;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+            color: #495057;
+            font-weight: 500;
+        }
+        
+        .nav-pill:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-pill.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        section h3 {
+            color: #495057;
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .info-box.warning {
+            border-left-color: #ffc107;
+            background: #fff9e6;
+        }
+        
+        .info-box.danger {
+            border-left-color: #dc3545;
+            background: #ffe6e6;
+        }
+        
+        .info-box.success {
+            border-left-color: #28a745;
+            background: #e6f7e6;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+        
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .quote {
+            background: white;
+            border-left: 4px solid #764ba2;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .quote strong {
+            display: block;
+            color: #764ba2;
+            font-style: normal;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .task-block {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .task-block h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        
+        .task-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .task-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .task-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+        
+        .stat-card .number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .label {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 30px 0;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #667eea;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #667eea;
+        }
+        
+        .team-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .team-section h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        /* ДОКУМЕНТЫ - КАРТОЧКИ */
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .doc-card-static {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .doc-card-static:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .doc-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .doc-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .doc-description {
+            font-size: 0.9em;
+            color: #6c757d;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .doc-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        
+        .doc-actions {
+            margin-top: 15px;
+        }
+        
+        .doc-download-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .doc-download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .nav-pills {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .docs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        
+        /* ССЫЛКА НА ДОКУМЕНТЫ */
+        .docs-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .docs-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏪 Кейс: "Соседи"</h1>
+            <p>Новая стратегия устойчивого развития 2026–2030</p>
+        </header>
+        
+        <div class="content">
+            <div class="nav-pills" id="navigation">
+                <button class="nav-pill" onclick="scrollToSection('company')">О компании</button>
+                <button class="nav-pill" onclick="scrollToSection('challenge1')">Вызов 1</button>
+                <button class="nav-pill" onclick="scrollToSection('challenge2')">Вызов 2</button>
+                <button class="nav-pill" onclick="scrollToSection('challenge3')">Вызов 3</button>
+                <button class="nav-pill" onclick="scrollToSection('opinions')">Мнения</button>
+                <button class="nav-pill" onclick="scrollToSection('task')">Задача</button>
+                <button class="nav-pill" onclick="scrollToSection('documents')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">📁 Документы</button>
+            </div>
+            
+            <!-- О КОМПАНИИ -->
+            <section id="company">
+                <h2>📋 Справка о компании</h2>
+                
+                <div class="info-box">
+                    <strong>ПАО "Соседи"</strong> — федеральная сеть продуктовых магазинов, основанная в 2006 году.
+                    <br>Штаб-квартира: Екатеринбург
+                </div>
+                
+                <h3>Основные показатели (2024 год)</h3>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="number">26 500</div>
+                        <div class="label">магазинов по России</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">340 000</div>
+                        <div class="label">сотрудников</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">230 000</div>
+                        <div class="label">товарных позиций (SKU)</div>
+                    </div>
+                </div>
+                
+                <h3>Форматы магазинов</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Формат</th>
+                            <th>Количество</th>
+                            <th>% выручки</th>
+                            <th>Площадь</th>
+                            <th>Характеристики</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Магазины у дома</strong></td>
+                            <td>17 500</td>
+                            <td>55%</td>
+                            <td>~150 м²</td>
+                            <td>Высокая проходимость, короткие сроки годности → высокие отходы</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Супермаркеты</strong></td>
+                            <td>7 000</td>
+                            <td>35%</td>
+                            <td>~800 м²</td>
+                            <td>Средний ассортимент, средние отходы</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Гипермаркеты</strong></td>
+                            <td>2 000</td>
+                            <td>10%</td>
+                            <td>~3 500 м²</td>
+                            <td>Длинные сроки годности, низкие отходы, но высокое энергопотребление</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>История ESG-повестки</h3>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <strong>2020</strong><br>
+                        Принята первая стратегия устойчивого развития на период 2020–2025
+                    </div>
+                    <div class="timeline-item">
+                        <strong>2020–2024</strong><br>
+                        Получен ESG-рейтинг BBB от международного агентства
+                    </div>
+                    <div class="timeline-item">
+                        <strong>2024</strong><br>
+                        Оцифровано 1 500 операций, созданы цифровые двойники по 184 процессам
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Конец 2025</strong><br>
+                        Действующая стратегия заканчивается. Совет директоров поручил разработать новую стратегию на 2026–2030
+                    </div>
+                </div>
+            </section>
+            
+            <!-- ВЫЗОВ 1 -->
+            <section id="challenge1">
+                <h2>⚠️ Вызов 1: Требования поставщиков</h2>
+                
+                <div class="info-box warning">
+                    <strong>Контекст:</strong> Топ-5 поставщиков (молоко, мясо, овощи, бакалея) обеспечивают 40% ассортимента "Соседи". 
+                    В октябре 2025 года они объединились в отраслевой альянс.
+                </div>
+                
+                <div class="quote">
+                    <strong>Из письма поставщиков:</strong>
+                    С 1 января 2027 года мы поставляем продукцию только тем торговым сетям, которые публикуют верифицированную нефинансовую отчётность с конкретными показателями:
+                    <ul style="margin-top: 15px; list-style-position: inside;">
+                        <li><strong>Пищевые отходы</strong> (кг на 1 млн руб. выручки)</li>
+                        <li><strong>Энергопотребление</strong> (кВт·ч на м² торговой площади)</li>
+                        <li><strong>Текучесть персонала</strong> (% в год)</li>
+                        <li><strong>Доля продукции местных производителей</strong> (% от объёма закупок)</li>
+                    </ul>
+                    <br>
+                    Отчётность должна быть заверена независимым аудитором. Компании, не предоставившие данные, будут исключены из программ совместного продвижения и потеряют приоритет в поставках при дефиците товара.
+                </div>
+                
+                <div class="info-box danger">
+                    <strong>Комментарий директора по закупкам:</strong><br>
+                    "Если мы потеряем этих поставщиков — рухнет половина ассортимента. Альтернатив на рынке либо нет, либо они дороже на 15–20%."
+                </div>
+            </section>
+            
+            <!-- ВЫЗОВ 2 -->
+            <section id="challenge2">
+                <h2>🏛️ Вызов 2: Муниципальные программы</h2>
+                
+                <div class="info-box">
+                    Администрации Москвы, Санкт-Петербурга, Екатеринбурга и ещё 12 крупных городов запустили программу <strong>"Устойчивая торговля — 2026"</strong>
+                </div>
+                
+                <h3>Условия для участия</h3>
+                <ul class="task-list">
+                    <li>Раздельный сбор отходов внедрён в <strong>80% магазинов</strong> сети (в границах данного города)</li>
+                    <li>Не менее <strong>20% ассортимента</strong> — от производителей данного региона</li>
+                </ul>
+                
+                <h3>Льготы для участников</h3>
+                <ul class="task-list">
+                    <li>Скидка <strong>25%</strong> на арендную плату в муниципальных помещениях</li>
+                    <li>Приоритет при выделении земельных участков под новые объекты</li>
+                    <li>Освобождение от части торгового сбора</li>
+                </ul>
+                
+                <div class="info-box success">
+                    <strong>Справка:</strong><br>
+                    У "Соседи" в этих 15 городах: ~3 500 магазинов, из них 850 в муниципальной аренде.<br>
+                    Арендные платежи: ~11 млрд руб./год<br>
+                    <strong>Потенциальная экономия при скидке 25% = 2,75 млрд руб./год</strong>
+                </div>
+                
+                <div class="quote">
+                    <strong>Финансовый директор:</strong>
+                    "Экономия в 2,75 млрд руб. — серьёзные деньги. Но внедрение раздельного сбора в 2 800 магазинов (80% от 3 500) и переход на 20% местных поставщиков потребует инвестиций. Нужно посчитать окупаемость."
+                </div>
+                
+                <p><strong>Срок подачи заявок:</strong> до 1 июля 2026 года</p>
+            </section>
+            
+            <!-- ВЫЗОВ 3 -->
+            <section id="challenge3">
+                <h2>💼 Вызов 3: Конфликт в системе мотивации</h2>
+                
+                <div class="info-box danger">
+                    <strong>Проблема:</strong> Текущая система KPI стимулирует рост отходов и текучесть персонала
+                </div>
+                
+                <h3>Директора магазинов</h3>
+                <table>
+                    <tr>
+                        <td><strong>Оклад + премия</strong></td>
+                        <td>до 100% оклада</td>
+                    </tr>
+                    <tr>
+                        <td>70% премии</td>
+                        <td>за выполнение плана по выручке</td>
+                    </tr>
+                    <tr>
+                        <td>20% премии</td>
+                        <td>за соблюдение бюджета расходов</td>
+                    </tr>
+                    <tr>
+                        <td>10% премии</td>
+                        <td>за результаты проверок (санитария, выкладка)</td>
+                    </tr>
+                </table>
+                
+                <div class="info-box warning">
+                    <strong>Что происходит:</strong> Директора заказывают товар с запасом, чтобы не потерять продажи и выполнить план по выручке. Это генерирует пищевые отходы до 18% от закупок в некоторых магазинах.
+                </div>
+                
+                <h3>Завсклады</h3>
+                <table>
+                    <tr>
+                        <td><strong>Оклад + премия</strong></td>
+                        <td>до 50% оклада</td>
+                    </tr>
+                    <tr>
+                        <td>60% премии</td>
+                        <td>за точность заказа (план vs факт продаж)</td>
+                    </tr>
+                    <tr>
+                        <td>30% премии</td>
+                        <td>за минимизацию списаний</td>
+                    </tr>
+                    <tr>
+                        <td>10% премии</td>
+                        <td>за соблюдение сроков годности</td>
+                    </tr>
+                </table>
+                
+                <div class="info-box warning">
+                    <strong>Что происходит:</strong> Завсклады боятся списаний, поэтому тоже закладывают запас. Нет инструментов для точного прогноза спроса.
+                </div>
+                
+                <h3>Кассиры</h3>
+                <table>
+                    <tr>
+                        <td><strong>Оклад + премия</strong></td>
+                        <td>до 30% оклада</td>
+                    </tr>
+                    <tr>
+                        <td>80% премии</td>
+                        <td>за скорость обслуживания (чеков/час)</td>
+                    </tr>
+                    <tr>
+                        <td>20% премии</td>
+                        <td>за отсутствие ошибок (пересорт, недостача)</td>
+                    </tr>
+                </table>
+                
+                <div class="info-box danger">
+                    <strong>Что происходит:</strong> Кассиры гонят скорость → клиенты недовольны качеством обслуживания → текучесть кассиров 48% в год. Обучение одного кассира: 25 000 руб., адаптация: 2 месяца.
+                </div>
+            </section>
+            
+            <!-- МНЕНИЯ РУКОВОДИТЕЛЕЙ -->
+            <section id="opinions">
+                <h2>💬 Мнения руководителей компании</h2>
+                
+                <div class="quote">
+                    <strong>Финансовый директор:</strong>
+                    Мы не знаем стоимость наших ESG-инициатив. Публикуем отчёт: "переработали 45 000 тонн картона", "снизили энергопотребление на 8%". Но сколько это стоило? Какие подразделения несут затраты? Как это влияет на рентабельность магазина?
+                    <br><br>
+                    Считаем затраты по классическим статьям: закупка товаров (1 750 млрд руб.), зарплата (175 млрд), аренда (115 млрд), логистика (88 млрд), энергия (44 млрд), прочее (63 млрд).
+                    <br><br>
+                    Но где внутри этих статей ESG-затраты? Раздельный сбор — это «Прочие» или «Логистика»? Обучение персонала ESG-стандартам — это «Зарплата» или отдельная статья? Без детального учёта невозможно управлять ESG как бизнес-процессом.
+                </div>
+                
+                <div class="quote">
+                    <strong>Директор по операциям:</strong>
+                    У нас три формата с разной экономикой. Если считать только выручку — лидируют магазины у дома (55% выручки). Но если добавить ESG-показатели (отходы на 1 руб. выручки, энергопотребление на м², текучесть) — картина может перевернуться.
+                    <br><br>
+                    Нужна методика, которая покажет реальную эффективность формата с учётом экологии и социальных факторов. Иначе не понимаем, куда инвестировать.
+                </div>
+                
+                <div class="quote">
+                    <strong>Директор по закупкам:</strong>
+                    230 000 товарных позиций. Классический ABC-анализ: группа A (20% позиций) → 70% выручки, группа C (50% позиций) → 10% выручки.
+                    <br><br>
+                    По логике группу C нужно сокращать. Но там: продукция местных фермеров (требование муниципалитетов), эко-товары (высокая маржа 35–40%), социально значимые товары (требование государства).
+                    <br><br>
+                    Если убрать C — потеряем 2,75 млрд руб. льгот, рискуем потерять поставщиков. Классический ABC не работает. Нужна новая логика с учётом ESG-ценности товара.
+                </div>
+                
+                <div class="quote">
+                    <strong>Директор по устойчивому развитию:</strong>
+                    За 6 месяцев нужно подготовить новую стратегию. Три проблемы:
+                    <br><br>
+                    <strong>1. Какие показатели критичны?</strong> Сейчас 47 показателей в отчёте — какие реально влияют на бизнес?
+                    <br><br>
+                    <strong>2. Как их измерять?</strong> Кто считает отходы — завсклад вручную? Энергопотребление — данные не собираются централизованно. Местные производители — как определить "местный"?
+                    <br><br>
+                    <strong>3. Как избежать гринвошинга?</strong> Можем написать "снизили отходы на 12%", но если аудитор спросит методику, первичные документы, ответственных — что ответим? Внешняя верификация стоит 8–12 млн руб./год.
+                </div>
+            </section>
+            
+            <!-- ЗАДАЧА -->
+            <section id="task">
+                <h2>🎯 Задача для команд</h2>
+                
+                <div class="info-box">
+                    ПАО "Соседи" нанимает вас как команду консультантов. У вас <strong>6 месяцев</strong> до утверждения новой стратегии устойчивого развития на 2026–2030 годы.
+                </div>
+                
+                <h3>Организация работы</h3>
+                
+                <div class="team-section">
+                    <h4>Команда 1: Нефинансовая отчётность</h4>
+                    <ul class="task-list">
+                        <li>Какие 5–7 ключевых показателей выбрать из текущих 47?</li>
+                        <li>Как их измерять конкретно (кто, как часто, в каких единицах)?</li>
+                        <li>Как обеспечить достоверность данных и избежать гринвошинга?</li>
+                        <li>Оценить стоимость внешней верификации</li>
+                    </ul>
+                </div>
+                
+                <div class="team-section">
+                    <h4>Команда 2: ABC-костинг и ABC-анализ</h4>
+                    <ul class="task-list">
+                        <li>Определить драйверы активностей для ESG-затрат (раздельный сбор, энергоэффективность, обучение)</li>
+                        <li>Показать на примере: как распределить затраты между форматами магазинов</li>
+                        <li>Предложить новую логику ABC-анализа с учётом ESG-ценности товаров</li>
+                        <li>Разработать метрику сравнения форматов: какой выгоднее с учётом ESG?</li>
+                    </ul>
+                </div>
+                
+                <div class="team-section">
+                    <h4>Команда 3: Новая система KPI</h4>
+                    <ul class="task-list">
+                        <li>Объяснить, где проявляется эффект Гудхарта в текущей системе</li>
+                        <li>Разработать новые KPI для директоров магазинов (формула, вес, пример расчёта)</li>
+                        <li>Разработать новые KPI для завскладов и кассиров</li>
+                        <li>Предложить механизмы защиты от манипуляций показателями</li>
+                    </ul>
+                </div>
+                
+                <h3>Формат презентации (6 минут на команду)</h3>
+                
+                <div class="task-block">
+                    <h3>Структура выступления:</h3>
+                    <ol style="padding-left: 20px;">
+                        <li><strong>Проблема</strong> (что не работает сейчас) — 1 мин</li>
+                        <li><strong>Решение</strong> (что вы предлагаете с конкретными цифрами) — 3 мин</li>
+                        <li><strong>Интеграция</strong> (как ваше решение связано с работой других команд) — 2 мин</li>
+                    </ol>
+                </div>
+                
+                <div class="info-box">
+                    <strong>Важно:</strong> Все команды имеют доступ ко всем документам компании, чтобы видеть полную картину и понимать взаимосвязи.
+                </div>
+                
+                <div class="info-box success" style="margin-top: 30px; text-align: center; font-size: 1.1em;">
+                    <strong>Время на подготовку: 25 минут</strong>
+                </div>
+            </section>
+
+            
+            <!-- ДОКУМЕНТЫ ДЛЯ РАБОТЫ -->
+            <section id="documents">
+                <h2>📁 Документы для работы</h2>
+                
+                <div class="info-box" style="text-align: center; padding: 40px;">
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">
+                        Все документы для работы доступны по ссылке:
+                    </p>
+                    <a href="https://disk.yandex.ru/d/qzd2lALdwgCh3A" target="_blank" class="docs-link">
+                        📂 Открыть документы на Яндекс.Диске
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            const navHeight = document.querySelector('.nav-pills').offsetHeight;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - navHeight - 20;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+            
+            document.querySelectorAll('.nav-pill').forEach(pill => {
+                pill.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+        
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navPills = document.querySelectorAll('.nav-pill');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navPills.forEach(pill => {
+                pill.classList.remove('active');
+                if (pill.getAttribute('onclick') && pill.getAttribute('onclick').includes(current)) {
+                    pill.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
